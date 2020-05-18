@@ -112,33 +112,6 @@ public class DetailsActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    /*public class DownloadImageTask extends AsyncTask<String, Void, Bitmap>{
-        ImageView mBmImage;
-        DownloadImageTask(ImageView bmImage){
-            mBmImage = bmImage;
-        }
-        @Override
-        protected Bitmap doInBackground(String... urls) {
-            String urlDisplay = urls[0];
 
-            Bitmap image = null;
-            try {
-                InputStream in = new java.net.URL(urlDisplay).openStream();
-                image = BitmapFactory.decodeStream(in);
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return image;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap bitmap) {
-            mBmImage.setImageBitmap(bitmap);
-        }
-    }
-
-    */
 }
 
