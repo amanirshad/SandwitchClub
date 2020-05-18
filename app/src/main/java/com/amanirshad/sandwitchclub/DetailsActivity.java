@@ -1,33 +1,18 @@
 package com.amanirshad.sandwitchclub;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.amanirshad.sandwitchclub.Utils.JSONUtils;
 import com.amanirshad.sandwitchclub.model.Sandwitch;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
-import org.w3c.dom.Text;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -99,9 +84,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         }
 
-        //new DownloadImageTask((ImageView)findViewById(R.id.image)).execute(sandwitch.getImage());
-       // MyAppGlideModule.with(this).load(sandwitch.getImage()).into(ingredients);
-        //MyAppGlideModule.with(this)
+
         GlideApp.with(this).load(sandwitch.getImage()).into(ingredients);
 
         setTitle(sandwitch.getMainName());
