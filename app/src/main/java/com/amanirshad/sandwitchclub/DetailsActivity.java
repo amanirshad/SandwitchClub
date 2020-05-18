@@ -3,17 +3,31 @@ package com.amanirshad.sandwitchclub;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amanirshad.sandwitchclub.Utils.JSONUtils;
 import com.amanirshad.sandwitchclub.model.Sandwitch;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.w3c.dom.Text;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -53,7 +67,7 @@ public class DetailsActivity extends AppCompatActivity {
             closeOnError();
             return;
         }
-
+        Log.v("URL",sandwitch.getImage());
         mainName.setText(sandwitch.getMainName());
         placeOfOrigin.setText(sandwitch.getPlaceOfOrigin());
         description.setText(sandwitch.getDescription());
@@ -85,9 +99,10 @@ public class DetailsActivity extends AppCompatActivity {
 
         }
 
-        Picasso.with(this)
-                .load(sandwitch.getImage())
-                .into(ingredients);
+        //new DownloadImageTask((ImageView)findViewById(R.id.image)).execute(sandwitch.getImage());
+       // MyAppGlideModule.with(this).load(sandwitch.getImage()).into(ingredients);
+        //MyAppGlideModule.with(this)
+        GlideApp.with(this).load(sandwitch.getImage()).into(ingredients);
 
         setTitle(sandwitch.getMainName());
     }
@@ -97,6 +112,33 @@ public class DetailsActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
+    /*public class DownloadImageTask extends AsyncTask<String, Void, Bitmap>{
+        ImageView mBmImage;
+        DownloadImageTask(ImageView bmImage){
+            mBmImage = bmImage;
+        }
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            String urlDisplay = urls[0];
 
+            Bitmap image = null;
+            try {
+                InputStream in = new java.net.URL(urlDisplay).openStream();
+                image = BitmapFactory.decodeStream(in);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return image;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            mBmImage.setImageBitmap(bitmap);
+        }
+    }
+
+    */
 }
 
