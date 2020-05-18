@@ -1,31 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Sandwich Club</string>
-
-    <!-- Detail Activity-->
-    <string name="detail_also_known_as_label">Also known as:</string>
-    <string name="detail_place_of_origin_label">Place of origin:</string>
-    <string name="detail_description_label">Description:</string>
-    <string name="detail_ingredients_label">Ingredients:</string>
-
-    <!-- Content descriptions-->
-    <string name="sandwich_picture_content_description">Sandwich picture</string>
-
-    <!-- Error messages-->
-    <string name="detail_error_message">Sandwich data not available</string>
-    <string name="place_of_origin">Place Of Origin:</string>
-    <string name="main_name_goes_here">Main name Goes Here</string>
-    <string name="description">Description:</string>
-    <string name="ingredients">Ingredients:</string>
-    <string name="ingredients_details_goes_here">Ingredients details goes here</string>
-    <string name="also_known_as">Also Known As:</string>
-    <string name="also_know_as_hint">""</string>
-    <string name="name">Name:</string>
-
-    <string-array name="sandwich_names">
-        <item>Ham and cheese sandwich</item>
+    <string-array name="sandwitch_names">
+        <item>Ham and cheese sandwitch</item>
         <item>Bosna</item>
         <item>Chivito</item>
-        <item>Club sandwich</item>
+        <item>Club sandwitch</item>
         <item>Gua bao</item>
         <item>Medianoche</item>
         <item>Pljeskavica</item>
@@ -34,7 +13,7 @@
         <item>Vada Pav</item>
     </string-array>
 
-    <string-array name="sandwich_details">
+    <string-array name="sandwitch_details">
         <item>{\"name\":{\"mainName\":\"Ham and cheese
             sandwich\",\"alsoKnownAs\":[]},\"placeOfOrigin\":\"\",\"description\":\"A ham and cheese
             sandwich is a common type of sandwich. It is made by putting cheese and sliced ham
@@ -137,4 +116,3 @@
     </string-array>
 
 </resources>
-

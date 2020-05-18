@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amanirshad.sandwitchclub.Utils.JSONUtils;
 import com.amanirshad.sandwitchclub.model.Sandwitch;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.w3c.dom.Text;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -20,7 +24,14 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        ImageView ingredientsIv = findViewById(R.id.image_iv);
+
+        ImageView ingredients = findViewById(R.id.image);
+        TextView mainName= findViewById(R.id.mainName);
+        TextView placeOfOrigin = findViewById(R.id.placeOfOrigin);
+        TextView description = findViewById(R.id.description);
+        TextView alsoKnownAs = findViewById(R.id.alsoKnownAs);
+        TextView ingredientsText = findViewById(R.id.ingredients);
+
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -43,10 +54,40 @@ public class DetailsActivity extends AppCompatActivity {
             return;
         }
 
-        populateUI();
+        mainName.setText(sandwitch.getMainName());
+        placeOfOrigin.setText(sandwitch.getPlaceOfOrigin());
+        description.setText(sandwitch.getDescription());
+        for (int i = 0; i <sandwitch.getAlsoKnownAs().length(); i++){
+
+            String space = ", ";
+            if (i == sandwitch.getAlsoKnownAs().length()-1){
+                space = ""; // to avoid comma at the end
+            }
+            try {
+                alsoKnownAs.append(sandwitch.getAlsoKnownAs().get(i) +space);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        for (int i = 0; i <sandwitch.getIngredients().length(); i++){
+
+            String space = ", ";
+            if (i == sandwitch.getIngredients().length()-1){
+                space = ""; // to avoid comma at the end
+            }
+            try {
+                ingredientsText.append(sandwitch.getIngredients().get(i).toString()+space);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+
         Picasso.with(this)
                 .load(sandwitch.getImage())
-                .into(ingredientsIv);
+                .into(ingredients);
 
         setTitle(sandwitch.getMainName());
     }
@@ -56,8 +97,6 @@ public class DetailsActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void populateUI() {
 
-    }
 }
 

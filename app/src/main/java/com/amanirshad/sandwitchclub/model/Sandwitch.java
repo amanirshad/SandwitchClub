@@ -1,21 +1,23 @@
 package com.amanirshad.sandwitchclub.model;
 
+import org.json.JSONArray;
+
 import java.util.List;
 
 public class Sandwitch {
     private String mainName;
-    private List<String> alsoKnownAs = null;
+    private JSONArray alsoKnownAs = null;
     private String placeOfOrigin;
     private String description;
     private String image;
-    private List<String> ingredients = null;
+    private JSONArray ingredients = null;
 
     /**
      * No args constructor for use in serialization
      */
     public Sandwitch() {
     }
-    public Sandwitch(String mainName, List<String> alsoKnownAs, String placeOfOrigin, String description, String image, List<String> ingredients) {
+    public Sandwitch(String mainName, JSONArray alsoKnownAs, JSONArray ingredients, String placeOfOrigin, String description, String image) {
         this.mainName = mainName;
         this.alsoKnownAs = alsoKnownAs;
         this.placeOfOrigin = placeOfOrigin;
@@ -32,11 +34,11 @@ public class Sandwitch {
         this.mainName = mainName;
     }
 
-    public List<String> getAlsoKnownAs() {
+    public JSONArray getAlsoKnownAs() {
         return alsoKnownAs;
     }
 
-    public void setAlsoKnownAs(List<String> alsoKnownAs) {
+    public void setAlsoKnownAs(JSONArray alsoKnownAs) {
         this.alsoKnownAs = alsoKnownAs;
     }
 
@@ -64,11 +66,11 @@ public class Sandwitch {
         this.image = image;
     }
 
-    public List<String> getIngredients() {
+    public JSONArray getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(JSONArray ingredients) {
         this.ingredients = ingredients;
     }
 }
